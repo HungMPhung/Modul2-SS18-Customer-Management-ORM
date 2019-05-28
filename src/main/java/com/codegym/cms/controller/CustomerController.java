@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 
 public class CustomerController {
@@ -32,4 +34,11 @@ public class CustomerController {
         return modelAndView;
     }
 
+    @GetMapping("/customers")
+    public ModelAndView listCustomer(){
+        List<Customer>customers = customerService.findAll();
+        ModelAndView modelAndView = new ModelAndView("/customer/list");
+        modelAndView.addObject("customers", customers);
+        return modelAndView;
+    }
 }
