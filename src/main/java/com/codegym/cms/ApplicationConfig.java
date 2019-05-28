@@ -1,5 +1,7 @@
 package com.codegym.cms;
 
+import com.codegym.cms.repository.CustomerRepository;
+import com.codegym.cms.repository.impl.CustomerRepositoryImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -39,11 +41,11 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         this.applicationContext = applicationContext;
     }
 
-//    @Bean
-//    public CustomerRepository customerRepository(){
-//        return new CustomerRepositoryImpl();
-//    }
-//
+    @Bean
+    public CustomerRepository customerRepository(){
+        return new CustomerRepositoryImpl();
+    }
+
 //    @Bean
 //    public CustomerService customerService(){
 //        return new CustomerServiecImpl();
